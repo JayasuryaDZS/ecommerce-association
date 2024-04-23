@@ -66,7 +66,6 @@ app.get("/getPost/:id", (req, res) => {
 })
 
 app.get("/getalluser",  (req, res) => {
-    console.log("Iam coming inside the get all users 68 -->")
     UserModel.findAll({
         include: [model.UserDetails, model.Post, model.Friends, { model: model.Groups, through: { model: model.UserGroup } }]
     }).then(data => {
